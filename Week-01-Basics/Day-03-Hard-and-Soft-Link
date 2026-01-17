@@ -1,0 +1,31 @@
+# 🐧 Day 3 – Understanding **Hard Links** & **Soft Links**
+
+## 📌 **Objective**
+To understand how Linux links work at the filesystem level by exploring the differences between **Soft (Symbolic) Links** and **Hard Links**, along with practical command-line demonstrations.
+
+## 🔹 **Soft Link (Symbolic Link)**
+A **soft link** acts like a shortcut that points to the **file path** of the original file.  
+**Command Used:** `ln -s Myfile.txt softlink`  
+**Verification:** `ls`, `cat softlink`  
+**Observations:** The symbolic link appears alongside the original file; accessing the soft link displays the same content as the original file; if the original file is deleted, the soft link becomes broken.  
+**Key Points:** Soft links reference the **file path**; work across **different filesystems**; similar to **shortcuts in Windows**; **dependent** on the original file’s existence.
+
+## 🔹 **Hard Link**
+A **hard link** directly points to the **same inode (actual data)** on disk.  
+**Command Used:** `ln File.txt hardlink-file`  
+**Verification:** `ls`, `cat hardlink-file`  
+**Observations:** Both filenames appear as **independent files**; both point to the **same underlying data**; deleting one filename does **not** remove the data.  
+**Key Points:** Hard links share the **same inode**; cannot cross **different filesystems**; changes via one link **reflect in the other**; data exists as long as **at least one hard link remains**.
+
+## 🔁 **Soft Link vs Hard Link**
+**Soft Link:** references **file path**, crosses filesystem ✅, breaks if original deleted ✅, inode shared ❌  
+**Hard Link:** references **inode**, crosses filesystem ❌, breaks if original deleted ❌, inode shared ✅
+
+## 🧠 **Learning Outcome**
+This exercise helped me understand how Linux manages **files internally**, the role of **inodes** in filesystem design, and why links are important in **real-world Linux systems**. Some days are about **depth, not speed** 🚀 This topic strengthened my foundation for **advanced Linux concepts**.
+
+## ⏭️ **Next Step**
+➡️ **Day 4** – Exploring more core Linux commands to improve daily terminal confidence.
+
+## 📌 **Part of my Linux Learning Playbook**
+🔗 **Daily practice | Dev.to articles | GitHub documentation**
